@@ -1,6 +1,7 @@
 {
     "config_version": 20210101,
+    "app_id": "rticket-waseh",
     "name": "RTicket",
-    "location": "US-VA",
+    "provider_region": "aws-ap-southeast-1",
     "deployment_model": "LOCAL"
 }
