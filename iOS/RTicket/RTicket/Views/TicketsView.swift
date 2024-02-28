@@ -15,6 +15,7 @@ struct TicketsView: View {
     var isPreview = false
     
     @ObservedResults(Ticket.self, sortDescriptor: SortDescriptor(keyPath: "status", ascending: false)) var tickets
+    //This like constructs the realm instance using the wrapper of the passed down env
     @Environment(\.realm) var realm
     
     @State private var title = ""

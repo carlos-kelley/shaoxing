@@ -21,6 +21,7 @@
 		0A37C0B927C9397C00B5A7A7 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0B827C9397C00B5A7A7 /* DateView.swift */; };
 		0AF4B64627CD0F5300B25992 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B64527CD0F5300B25992 /* EmailLoginView.swift */; };
 		0AF4B64827CD110800B25992 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B64727CD110800B25992 /* LogoutButton.swift */; };
+		D369AE872B8F18FA004560A3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369AE862B8F18FA004560A3 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		0A37C0B827C9397C00B5A7A7 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		0AF4B64527CD0F5300B25992 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
 		0AF4B64727CD110800B25992 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
+		D369AE862B8F18FA004560A3 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				0A37C0B027C924E900B5A7A7 /* Ticket.swift */,
+				D369AE862B8F18FA004560A3 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				0A37C0B527C929D400B5A7A7 /* TicketsView.swift in Sources */,
 				0A37C0AF27C921E900B5A7A7 /* LoginView.swift in Sources */,
 				0A37C0B927C9397C00B5A7A7 /* DateView.swift in Sources */,
+				D369AE872B8F18FA004560A3 /* Product.swift in Sources */,
 				0A37C09C27C91F5100B5A7A7 /* ContentView.swift in Sources */,
 				0A37C0B727C9362700B5A7A7 /* TicketView.swift in Sources */,
 				0A37C09A27C91F5100B5A7A7 /* RTicketApp.swift in Sources */,
