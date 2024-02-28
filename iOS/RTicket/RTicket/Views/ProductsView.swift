@@ -9,16 +9,15 @@ import SwiftUI
 import RealmSwift
 
 struct ProductsView: View {
+    @ObserveInjection var inject
+    
     let username: String
     var isPreview = false
     let subscriptionName = "activeProducts"
     
-    // TODO: Replace with Atlas
-//    let products = ["Atlas", "Realm", "Search", "Charts"]
-    
-    @ObservedResults(Product.self, sortDescriptor: SortDescriptor(keyPath: "productName", ascending: false)) var products
+    @ObservedResults(Product.self, sortDescriptor: SortDescriptor(keyPath: "productName", ascending: true)) var products
     @Environment(\.realm) var realm
-
+    
     @State private var inProgress = false
     
     
@@ -28,9 +27,9 @@ struct ProductsView: View {
                 if !isPreview {
                     if let currentUser = realmApp.currentUser {
                         NavigationLink(destination: TicketsView(product: product.productName, username: username)
-                                        .environment(\.realmConfiguration, currentUser.flexibleSyncConfiguration())) {
-                                            Text(product.productName)
-                        }
+                            .environment(\.realmConfiguration, currentUser.flexibleSyncConfiguration())) {
+                                Text(product.productName)
+                            }
                     }
                 } else {
                     NavigationLink(destination: TicketsView(product: product.productName, username: username, isPreview: true)) {
@@ -40,8 +39,10 @@ struct ProductsView: View {
             }
         }
         .navigationBarTitle("Products", displayMode: .inline)
-//        .onAppear(perform: setSubscriptions)
-//        .onDisappear(perform: clearSubscriptions)
+//        TODO: Make subscriptions work correctly
+        .onAppear(perform: setSubscriptions)
+                .onDisappear(perform: clearSubscriptions)
+                .enableInjection()
     }
     
     private func setSubscriptions() {
@@ -77,7 +78,6 @@ struct ProductsView: View {
         }
     }
 }
-
 
 struct ProductsView_Previews: PreviewProvider {
     static var previews: some View {

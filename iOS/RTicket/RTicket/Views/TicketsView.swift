@@ -9,6 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct TicketsView: View {
+    @ObserveInjection var inject
+    
     let product: String
     let username: String
     let lastYear = Date(timeIntervalSinceReferenceDate: Date().timeIntervalSinceReferenceDate.rounded() - (60 * 60 * 24 * 365))
@@ -57,6 +59,7 @@ struct TicketsView: View {
         .navigationBarTitle("\(product) Tickets", displayMode: .inline)
         .onAppear(perform: setSubscriptions)
         .onDisappear(perform: clearSubscriptions)
+        .enableInjection()
     }
     
     private func setSubscriptions() {

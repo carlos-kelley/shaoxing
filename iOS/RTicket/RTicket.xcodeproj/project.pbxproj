@@ -22,6 +22,7 @@
 		0AF4B64627CD0F5300B25992 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B64527CD0F5300B25992 /* EmailLoginView.swift */; };
 		0AF4B64827CD110800B25992 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B64727CD110800B25992 /* LogoutButton.swift */; };
 		D369AE872B8F18FA004560A3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369AE862B8F18FA004560A3 /* Product.swift */; };
+		D369AE8A2B8F5738004560A3 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = D369AE892B8F5738004560A3 /* Inject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 			files = (
 				0A37C0AB27C91FDF00B5A7A7 /* RealmSwift in Frameworks */,
 				0A37C0A927C91FDF00B5A7A7 /* Realm in Frameworks */,
+				D369AE8A2B8F5738004560A3 /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +134,7 @@
 				0A37C09227C91F5100B5A7A7 /* Sources */,
 				0A37C09327C91F5100B5A7A7 /* Frameworks */,
 				0A37C09427C91F5100B5A7A7 /* Resources */,
+				D30FF0D62B8F898E00DC45E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -141,6 +144,7 @@
 			packageProductDependencies = (
 				0A37C0A827C91FDF00B5A7A7 /* Realm */,
 				0A37C0AA27C91FDF00B5A7A7 /* RealmSwift */,
+				D369AE892B8F5738004560A3 /* Inject */,
 			);
 			productName = RTicket;
 			productReference = 0A37C09627C91F5100B5A7A7 /* RTicket.app */;
@@ -172,6 +176,7 @@
 			mainGroup = 0A37C08D27C91F5100B5A7A7;
 			packageReferences = (
 				0A37C0A727C91FDF00B5A7A7 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D369AE882B8F5738004560A3 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 0A37C09727C91F5100B5A7A7 /* Products */;
 			projectDirPath = "";
@@ -193,6 +198,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D30FF0D62B8F898E00DC45E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "RESOURCES=/Applications/InjectionIII.app/Contents/Resources\nif [ -f \"$RESOURCES/copy_bundle.sh\" ]; then\n    \"$RESOURCES/copy_bundle.sh\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A37C09227C91F5100B5A7A7 /* Sources */ = {
@@ -273,6 +299,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -329,6 +359,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -346,6 +380,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RTicket/Preview Content\"";
 				DEVELOPMENT_TEAM = 6UQZJ5L2VJ;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,6 +461,14 @@
 				version = 10.42.0;
 			};
 		};
+		D369AE882B8F5738004560A3 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -438,6 +481,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A37C0A727C91FDF00B5A7A7 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D369AE892B8F5738004560A3 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D369AE882B8F5738004560A3 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

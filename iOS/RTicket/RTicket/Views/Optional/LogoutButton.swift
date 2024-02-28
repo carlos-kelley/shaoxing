@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LogoutButton: View {
+    @ObserveInjection var inject
+    
     @Binding var username: String?
     
     @State private var isConfirming = false
@@ -18,6 +20,7 @@ struct LogoutButton: View {
                             isPresented: $isConfirming) {
             Button("Confirm Logout", role: .destructive) { logout() }
             Button("Cancel", role: .cancel) {}
+                .enableInjection()
         }
     }
     

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObserveInjection var inject
+    
     @Binding var username: String?
     
     var body: some View {
@@ -15,6 +17,7 @@ struct LoginView: View {
             .task {
                 await login()
             }
+            .enableInjection()
     }
     
     private func login() async {

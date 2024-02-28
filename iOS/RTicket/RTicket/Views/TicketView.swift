@@ -9,6 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct TicketView: View {
+    @ObserveInjection var inject
+    
     @ObservedRealmObject var ticket: Ticket
     
     var body: some View {
@@ -56,6 +58,7 @@ struct TicketView: View {
                 .tint(.yellow)
             }
         }
+        .enableInjection()
     }
 }
 

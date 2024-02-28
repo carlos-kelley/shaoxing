@@ -7,8 +7,11 @@
 
 import SwiftUI
 import RealmSwift
+//import Inject
 
 struct EmailLoginView: View {
+    @ObserveInjection var inject
+
     
     enum Field: Hashable {
         case username
@@ -64,6 +67,7 @@ struct EmailLoginView: View {
             }
         }
         .padding()
+        .enableInjection()
     }
     
     func userAction() {

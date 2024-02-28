@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DateView: View {
+    @ObserveInjection var inject
+//    TODO: correctly enable injection on this view
+    
     let date: Date
     
     private var isLessThanOneMinute: Bool { date.timeIntervalSinceNow > -60 }
